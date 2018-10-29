@@ -1,0 +1,47 @@
+*, ::before, ::after {
+    box-sizing: border-box
+}
+
+button {
+    background: none;
+    --border-color: var(--grey-200, hsl(0, 3%, 87%));
+    border: 1px solid var(--border-color);
+    /* padding: 2px; */
+    border-radius: 25px;
+    height: 27px;
+    padding: 2px;
+    color: var(--grey-500, #686464);
+    outline: 0;
+    font-size: 0.9em;
+}
+
+button.has-default {
+    padding: 2px 8px;
+}
+button.has-icon.has-default {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: var(--grey-100, hsl(0, 8%, 93%));
+}
+button:active {
+    background-color: var(--grey-200, hsl(0, 3%, 87%));
+}
+button:focus {
+    --border-color: var(--grey-400, #9d9a99);
+}
+
+/* Icon styles */
+button.has-icon > :first-child {
+    height: 100%;
+    width: auto;
+    padding: 2px;
+    fill: var(--grey-500, #686464);
+}
+button.has-icon.has-default > :first-child {
+    /* padding: 2px; */
+    padding: 3px 5px 3px 0;
+}
