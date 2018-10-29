@@ -2,10 +2,18 @@
   "name": "@dvll/ulight-react",
   "version": "1.0.0",
   "description": "Basic React component library",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dario",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.18",
+    "typescript": "^3.1.3"
+  }
 }
