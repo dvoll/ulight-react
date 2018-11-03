@@ -5,18 +5,41 @@ export const themes = {
         // foreground: '#ffffff',
         // secondary: '#222222',
         foreground: '220, 220, 220',
-        secondary: '74, 74, 74',
+        secondary:  '74, 74, 74',
         background: '35, 35, 35',
-        accent: '187, 0, 0',
+        accent:     '203, 66, 56',
+        value: 'dark'
     },
     light: {
-        foreground: '50, 50, 50',
-        secondary: '222, 220, 220',
+        foreground: '80, 80, 80',
+        secondary:  '222, 220, 220',
         background: '248, 248, 248',
-        accent: '187, 0, 0',
+        accent:     '203, 66, 56',
+        value: 'light'
     },
 };
 
+export enum ThemeType { LIGHT, DARK, CUSTOM};
+
+export const getTheme = (theme: ThemeType, customTheme?: Theme) => {
+    switch(theme) {
+        case ThemeType.DARK:
+            return themes.dark;
+        case ThemeType.CUSTOM:
+            return customTheme ? customTheme : themes.light;
+        default:
+            return themes.light;
+    }
+}
+
+export interface Theme {
+    foreground: string;
+    secondary: string;
+    background: string;
+    accent: string;
+    value: string;
+}
+
 export const ThemeContext = React.createContext(
-    themes.light // default value
+    themes.light as Theme// default value
 );

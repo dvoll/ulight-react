@@ -1,0 +1,20 @@
+
+.Ulight-container, 
+.Ulight-container *, 
+.Ulight-container *::before, 
+.Ulight-container *::after 
+{
+    box-sizing: border-box
+}
+
+.Ulight-container {
+    --foreground-rgb:   '220, 220,220';
+    --secondary-rgb:    '74, 74, 74';
+    --background-rgb:   '35, 35, 35';
+    --accent-rgb:       '187, 0, 0';
+
+    --foreground-color: rgb(var(--foreground-rgb));
+    --secondary-color:  rgb(var(--secondary-rgb));
+    --background-color: rgb(var(--background-rgb));
+    --accent-color:     rgb(var(--accent-rgb));
+}

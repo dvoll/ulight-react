@@ -1,90 +1,48 @@
-*, ::before, ::after {
-    box-sizing: border-box
-}
 
-/* button {
-    --border-color: var(--grey-200, hsl(0, 3%, 87%));
-    --color: var(--grey-500, #686464);
-    --focus-border: var(--grey-100, hsl(0, 8%, 93%));
-    --active-bg: var(--grey-200, hsl(0, 3%, 87%));
-    --hover-bg: var(--grey-400, #9d9a99);
-    /* --icon-fill: var(--grey-500, #686464); *
-} */
-
-/* button {
-    --border-color: var(--grey-200, hsl(0, 3%, 87%));
-    --color: var(--grey-500, rgb(104, 100, 100));
-    --hover-bg:     #eeebeb;
-    --active-bg:    #dedcdc;
-    --focus-border: #9d9a99;
-    /* --icon-fill: var(--grey-500, #686464); *
-} */
-
-
-button {
-    --secondary-rgb: 222, 220, 220;
-    /* --secondary: var(rgb(222, 220, 220)); */
-    --foreground-rgb:    104, 100, 100;
-
-    --secondary: rgb(var(--secondary-rgb));
-    --color:        rgba(var(--foreground-rgb), 90%);
+.Ulight-button {
     --hover-bg:     rgba(var(--foreground-rgb), 10%);
     --active-bg:    rgba(var(--foreground-rgb), 20%);
     --focus-border: rgba(var(--foreground-rgb), 60%);
-    /* --icon-fill: var(--grey-500, #686464); */
-}
-/* button.dark {
-    --secondary-rgb:  74, 74, 74;
-    
-    --foreground-rgb: 152, 152, 152;
-    /* --color: rgb(var(--color-rgb)); */
-    /* --hover-bg:     rgba(var(--color-rgb), 15%);
-    --active-bg:    rgba(var(--color-rgb), 20%);
-    --focus-border: rgba(var(--color-rgb), 60%); *
-} */
-
-button {
+    --border-color: var(--secondary-color);
+   
     background: none;
-    /* --border-color: var(--grey-200, hsl(0, 3%, 87%)); */
-    border: 1px solid var(--secondary);
-    /* padding: 2px; */
+    border: 1px solid var(--border-color);
     border-radius: 25px;
-    /* height: 30px; */
     padding: 2px;
-    color: var(--color);
+    color: var(--foreground-color);
     outline: 0;
     font-size: 0.9em;
 }
 
-button.has-default {
+.Ulight-button.has-default {
     padding: 6px 12px;
 }
-button.has-icon.has-default {
+.Ulight-button.has-icon.has-default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 2px 10px;
 }
 
-button:hover {
+.Ulight-button:hover {
     background-color: var(--hover-bg);
 }
-button:active {
+.Ulight-button:active {
     background-color: var(--active-bg);
 }
-button:focus {
-    --secondary: var(--focus-border);
+.Ulight-button:focus {
+    --border-color: var(--focus-border);
 }
 
 /* Icon styles */
-button.has-icon > :first-child {
+.Ulight-button.has-icon > :first-child {
     display: block;
     height: 25px;
     width: auto;
     padding: 2px;
-    fill: var(--color);
+    fill: var(--foreground-color);
 }
-button.has-icon.has-default > :first-child {
+.Ulight-button.has-icon.has-default > :first-child {
     /* padding: 2px; */
     padding: 3px 5px 3px 0;
 }

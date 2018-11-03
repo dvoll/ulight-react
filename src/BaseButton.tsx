@@ -1,7 +1,8 @@
 import * as React from "react";
-import "./BaseButton.css";
 import BaseIcon from "./BaseIcon";
 import { ThemeContext, themes } from "./theme-context";
+import "./default-style.css";
+import "./BaseButton.css";
 
 
 export interface ButtonProps {
@@ -17,6 +18,7 @@ const BaseButton = (props: ButtonProps) => {
     let classNames = `${props.name || props.children ? "has-default" : ""} ${props.icon ? "has-icon" : ""} ${props.icon ? "has-icon" : ""}`;
     return <ThemeContext.Consumer>
             {theme => {
+                console.log(theme);
                 if (theme === themes.dark ) {
                     classNames += " dark";
                 }
@@ -27,7 +29,7 @@ const BaseButton = (props: ButtonProps) => {
                     disabled={props.disabled || false}
                     ref={props.componentRef}
                     onClick={props.callback}
-                    className={classNames}
+                    className={classNames + "  Ulight-container Ulight-button"}
                         style={{ ["--foreground-rgb" as any]: theme.foreground, ["--secondary-rgb" as any]: theme.secondary}}
                     >
                         {props.icon ? <BaseIcon iconName={props.icon} /> : null}
