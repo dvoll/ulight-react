@@ -11,9 +11,9 @@ export const themes = {
         value: 'dark'
     },
     light: {
-        foreground: '80, 80, 80',
+        foreground: '60, 60, 60',
         secondary:  '222, 220, 220',
-        background: '248, 248, 248',
+        background: '242, 242, 242',
         accent:     '203, 66, 56',
         value: 'light'
     },
