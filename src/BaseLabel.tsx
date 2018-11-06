@@ -3,26 +3,26 @@ import { ThemeContext } from "./theme-context";
 
 export interface LabelProps {
     name: string;
+    style?: React.CSSProperties;
 }
 
 const BaseLabel = (props: LabelProps) => {
-    const label = (colorRgb: string) => {
-        return (
-            <span
-                style={{
-                    fontSize: "0.7rem",
-                    fontWeight: 700,
-                    color: `rgba(${colorRgb}, 60%)`, // "var(--grey-500, #686464)",
-                    letterSpacing: "1px",
-                    textTransform: "uppercase"
-                }}
-            >
-                {props.name}
-            </span>);
-    }
+    
     return <ThemeContext.Consumer>
         {theme => {
-            return label(theme.foreground)
+            const style = {
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                color: `rgba(${theme.foreground}, 60%)`, // "var(--grey-500, #686464)",
+                letterSpacing: "1px",
+                ['textTransform' as any]: "uppercase",
+                ...props.style
+            }
+            return <span
+                style={style}
+            >
+                {props.name}
+            </span>
         }}
         </ThemeContext.Consumer>;
 };

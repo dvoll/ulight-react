@@ -12,10 +12,11 @@ export interface ButtonProps {
     children?: React.ReactNode;
     componentRef?: React.RefObject<HTMLButtonElement>;
     disabled?: boolean;
+    className?: string
 }
 
 const BaseButton = (props: ButtonProps) => {
-    let classNames = `${props.name || props.children ? "has-default" : ""} ${props.icon ? "has-icon" : ""} ${props.icon ? "has-icon" : ""}`;
+    let classNames = `${props.name || props.children ? "has-default" : ""} ${props.icon ? "has-icon" : ""} ${props.icon ? "has-icon" : ""} ${props.className}`;
     return <ThemeContext.Consumer>
             {theme => {
                 console.log(theme);
