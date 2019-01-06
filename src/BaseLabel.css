@@ -1,0 +1,11 @@
+
+.Ulight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    --foreground-color: rgba(var(--foreground-rgb), 0.6);
+    color: var(--foreground-color);
+    /* color: `rgba(${theme.foreground}, 60%)`; // "var(--grey-500; #686464)"; */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}

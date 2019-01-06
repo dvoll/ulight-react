@@ -1,0 +1,12 @@
+
+.Ulight-ToggleButton input[type="checkbox"] {
+    position: absolute;
+    /* opacity: 0 */
+}
+
+.Ulight-ToggleButton input[type="checkbox"] + .Ulight-Toggle-Element {
+    display: block;
+}
+.Ulight-ToggleButton input[type="checkbox"]:checked + .Ulight-Toggle-Element {
+    background: red !important;
+}

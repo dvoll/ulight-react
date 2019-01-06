@@ -7,6 +7,7 @@ export const themes = {
         foreground: '220, 220, 220',
         secondary:  '74, 74, 74',
         background: '35, 35, 35',
+        backgroundAccent: '41, 41, 41',
         accent:     '203, 66, 56',
         value: 'dark'
     },
@@ -14,6 +15,7 @@ export const themes = {
         foreground: '60, 60, 60',
         secondary:  '222, 220, 220',
         background: '242, 242, 242',
+        backgroundAccent: '248, 248, 248',
         accent:     '203, 66, 56',
         value: 'light'
     },
@@ -36,6 +38,7 @@ export interface Theme {
     foreground: string;
     secondary: string;
     background: string;
+    backgroundAccent: string;
     accent: string;
     value: string;
 }

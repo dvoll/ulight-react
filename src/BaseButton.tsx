@@ -1,46 +1,65 @@
 import * as React from "react";
 import BaseIcon from "./BaseIcon";
-import { ThemeContext, themes } from "./theme-context";
+import { ThemeContext } from "./theme-context";
 import "./default-style.css";
 import "./BaseButton.css";
 
-
 export interface ButtonProps {
-    name?: string;
-    callback?: (ev: any) => void;
+    title?: string;
+    onClick?: (ev: any) => void;
     icon?: string;
     children?: React.ReactNode;
-    componentRef?: React.RefObject<HTMLButtonElement>;
+    ref?: React.RefObject<HTMLButtonElement>;
     disabled?: boolean;
-    className?: string
+    className?: string;
+    style?: React.CSSProperties;
+    iconStyle?: React.CSSProperties;
 }
 
 const BaseButton = (props: ButtonProps) => {
-    let classNames = `${props.name || props.children ? "has-default" : ""} ${props.icon ? "has-icon" : ""} ${props.icon ? "has-icon" : ""} ${props.className}`;
-    return <ThemeContext.Consumer>
+    const {className, style, title, icon, iconStyle, children, ...restProps} = props;
+    // let classNames = `${name || children ? "has-default" : ""} ${
+    //     icon ? "has-icon" : ""
+    // } ${icon ? "has-icon" : ""} ${className}`;
+    // const
+    return (
+        <ThemeContext.Consumer>
             {theme => {
-                console.log(theme);
-                if (theme === themes.dark ) {
-                    classNames += " dark";
-                }
-                // const foreground = theme.foreground;
+                const styles = {
+                    ["--foreground-rgb" as any]: theme.foreground,
+                    ["--secondary-rgb" as any]: theme.secondary,
+                    ["--background-rgb" as any]: theme.background,
+                    ...style
+                };
 
+                const hasDefault = (children || title) ? true : false;
+
+                const classNames =
+                    "Ulight-container Ulight-button " +
+                        (icon ? "has-icon " : "") +
+                        (hasDefault ? "has-default " : '') +
+                        className || "";
+
+                const iconStyles = {
+                    padding: hasDefault ? '3px 5px 3px 0' : 2,
+                    "--foreground-rgb": styles['--foreground-rgb'],
+                    height: 25,
+                    ...iconStyle
+                }
+                
                 return (
                     <button
-                    disabled={props.disabled || false}
-                    ref={props.componentRef}
-                    onClick={props.callback}
-                    className={classNames + "  Ulight-container Ulight-button"}
-                        style={{ ["--foreground-rgb" as any]: theme.foreground, ["--secondary-rgb" as any]: theme.secondary}}
+                        className={classNames}
+                        style={styles}
+                        {...restProps}
                     >
-                        {props.icon ? <BaseIcon iconName={props.icon} /> : null}
-                        {props.children ? null : props.name}
-                        {props.children}
+                        {icon ? <BaseIcon iconName={icon} style={iconStyles} /> : null}
+                        {children ? children : title}
                     </button>
-                    );
-                }
-            }
-        </ThemeContext.Consumer>;
+                );
+            }}
+        </ThemeContext.Consumer>
+    );
 };
 
 export default BaseButton;
