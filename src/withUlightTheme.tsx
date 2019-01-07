@@ -1,10 +1,12 @@
 import * as React from "react";
 import { ThemeContext } from "./theme-context";
 
+import './default-style.css';
+
 // // TODO: Add prop type and default props
 
 export const withUlightTheme = <P extends React.HTMLProps<any>>(UlightComponent: React.ComponentType<P>) => {
-    return class extends React.Component<P, {}> {
+    return class extends React.PureComponent<P, {}> {
 
         constructor(props: P) {
             super(props);
@@ -21,6 +23,7 @@ export const withUlightTheme = <P extends React.HTMLProps<any>>(UlightComponent:
                             ["--background-rgb" as any]: theme.background,
                             ['--background-accent-rgb' as any]: theme.backgroundAccent,
                             ['--accent-rgb' as any]: theme.accent,
+                            ...this.props.style as object
                         };
                         return <UlightComponent className="Ulight-container" {...this.props} style={styles} />;
                     }}

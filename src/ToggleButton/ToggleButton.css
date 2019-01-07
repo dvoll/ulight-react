@@ -1,12 +1,20 @@
 
-.Ulight-ToggleButton input[type="checkbox"] {
+.Ulight-ToggleButton input[type="checkbox"] ,
+.Ulight-ToggleButton input[type="radio"] 
+{
     position: absolute;
-    /* opacity: 0 */
+    opacity: 0
 }
 
-.Ulight-ToggleButton input[type="checkbox"] + .Ulight-Toggle-Element {
-    display: block;
+.Ulight-ToggleButton input[type="checkbox"] + .Ulight-ToggleElement,
+.Ulight-ToggleButton input[type="radio"] + .Ulight-ToggleElement 
+{
+    display: inline-block;
 }
-.Ulight-ToggleButton input[type="checkbox"]:checked + .Ulight-Toggle-Element {
-    background: red !important;
+.Ulight-ToggleButton input[type="checkbox"]:checked + .Ulight-ToggleElement,
+.Ulight-ToggleButton input[type="radio"]:checked + .Ulight-ToggleElement
+{
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    border-color: transparent;
 }
