@@ -1,7 +1,8 @@
 import * as React from "react";
 import { ThemeContext } from "./theme-context";
-import "./default-style.css";
+
 import "./BaseHeading.css";
+import "./default-style.css";
 
 export interface HeadingProps {
     title?: string;
@@ -13,7 +14,7 @@ export interface HeadingProps {
 
 const BaseHeading = (props: HeadingProps & React.HTMLProps<HTMLHeadingElement>) => {
     const {title, level, style, className, children, ...restProps} = props;
-    const Heading = (props: React.HTMLProps<HTMLHeadingElement>) => React.createElement("h1", props, children);
+    const Heading = (headingProps: React.HTMLProps<HTMLHeadingElement>) => React.createElement("h1", headingProps, children);
     // const Heading = React.createElement('h1', props, children);
     // const Heading = React.Component<any> = 'h1';
 

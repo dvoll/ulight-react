@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import './ToggleButton.css';
 import '../BaseButton.css';
+import './ToggleButton.css';
 
 export interface ToggleElementProps extends React.HTMLProps<HTMLInputElement> {
     index?: number;

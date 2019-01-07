@@ -108,6 +108,19 @@ class BaseSelect extends React.Component<BaseSelectProps> {
         );
     }
 
+    public shouldComponentUpdate(nextProps: BaseSelectProps) {
+        if (this.props.value !== nextProps.value) {
+            return true;
+        }
+        const oldValues = React.Children.map(this.props.children, (child: React.ReactElement<ToggleElementProps>) => child.props.value);
+        const newValues = React.Children.map(nextProps.children, (child: React.ReactElement<ToggleElementProps>) => child.props.value);
+        if (oldValues.length !== newValues.length) {
+            return true;
+        }
+        const equal = oldValues.every((item, index) => item === newValues[index])
+        return !equal;
+    }
+
     private handleRadioStateChangeFromEvent(
         event: React.ChangeEvent<HTMLInputElement & ToggleElementProps>
     ) {
@@ -232,19 +245,6 @@ class BaseSelect extends React.Component<BaseSelectProps> {
 
         this.props.onChange && this.props.onChange(ev);
         this.props.onSelectionChange && this.props.onSelectionChange(ev);
-    }
-
-    public shouldComponentUpdate(nextProps: BaseSelectProps, ) {
-        if (this.props.value !== nextProps.value) {
-            return true;
-        }
-        const oldValues = React.Children.map(this.props.children, (child: React.ReactElement<ToggleElementProps>) => child.props.value );
-        const newValues = React.Children.map(nextProps.children, (child: React.ReactElement<ToggleElementProps>) => child.props.value );
-        if (oldValues.length !== newValues.length) {
-            return true;
-        }
-        const equal = oldValues.every( (item, index) => item === newValues[index])
-        return !equal;
     }
 
     // private handleRadioStateChange(itemValue: string, checked: boolean) {

@@ -1,8 +1,9 @@
 import * as React from "react";
 import BaseIcon from "./BaseIcon";
 import { ThemeContext } from "./theme-context";
-import "./default-style.css";
+
 import "./BaseButton.css";
+import "./default-style.css";
 
 export interface ButtonProps {
     title?: string;
