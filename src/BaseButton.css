@@ -1,10 +1,9 @@
-
 .Ulight-button {
-    --hover-bg:     rgba(var(--foreground-rgb), 10%);
-    --active-bg:    rgba(var(--foreground-rgb), 20%);
+    --hover-bg: rgba(var(--foreground-rgb), 10%);
+    --active-bg: rgba(var(--foreground-rgb), 20%);
     --focus-border: rgba(var(--foreground-rgb), 60%);
-    --border-color: var(--secondary-color);
-   
+    --border-color: var(--foreground-light-color);
+
     background: var(--background-color);
     border: 1px solid var(--border-color);
     border-radius: 25px;

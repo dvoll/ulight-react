@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 import './BaseInput.css';
 
@@ -6,10 +6,20 @@ import './BaseInput.css';
 //     // time: Date;
 // }
 
-const BaseInput: React.SFC<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>> = (props) => {
+const BaseInput: React.SFC<
+    React.DetailedHTMLProps<
+        React.InputHTMLAttributes<HTMLInputElement>,
+        HTMLInputElement
+    >
+> = props => {
+    const { className, ...restProps } = props;
     return (
-        <input className='Ulight-BaseInput' key={'baseinput' + props.id} {...props} />
+        <input
+            className={'Ulight-container Ulight-BaseInput ' + className}
+            key={'baseinput' + props.id}
+            {...restProps}
+        />
     );
-}
+};
 
 export default React.memo(BaseInput);

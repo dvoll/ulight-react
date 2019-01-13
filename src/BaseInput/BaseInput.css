@@ -1,9 +1,21 @@
-
 .Ulight-BaseInput {
     padding: 5px 5px 5px 5px;
     /* font-size: 1.5rem; */
     margin: 2px 0;
     border-radius: 5px;
-    border: 1px solid gray;
+    /* --border-color: var(--secondary-color); */
+    border: 1px solid var(--border-color);
     background: none;
+    width: 100%;
+
+    color: var(--foreground-color);
+}
+
+.Ulight-BaseInput:focus {
+    --border-color: var(--secondary-color);
+}
+
+.Ulight-BaseInput:hover {
+    /* background-color: var(--foreground-light-color); */
+    --border-color: var(--foreground-color);
 }

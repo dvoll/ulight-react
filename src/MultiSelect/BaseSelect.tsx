@@ -1,15 +1,19 @@
-import * as React from "react";
-import { ToggleElementProps } from "src/ToggleButton/ToggleElement";
+import * as React from 'react';
+import { ToggleElementProps } from 'src/ToggleButton/ToggleElement';
 
 import './BaseSelect.css';
 
-export interface BaseSelectValue {
-    index?: number; 
-    value: string | number | string[];
-    checked?: boolean;
-}
+// export interface BaseSelectValue {
+//     index?: number;
+//     value: string | number | string[];
+//     checked?: boolean;
+// }
 
-export interface BaseSelectProps extends React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement> {
+export interface BaseSelectProps
+    extends React.DetailedHTMLProps<
+        React.SelectHTMLAttributes<HTMLSelectElement>,
+        HTMLSelectElement
+    > {
     // children: React.ComponentType<any>;
     // multiSelect?: boolean;
     name: string;
@@ -18,8 +22,6 @@ export interface BaseSelectProps extends React.DetailedHTMLProps<React.SelectHTM
     // value: BaseSelectValue[] | string;
     // children: any;
 }
-
-
 
 class BaseSelect extends React.Component<BaseSelectProps> {
     // private checkedElementCondition =
@@ -59,7 +61,8 @@ class BaseSelect extends React.Component<BaseSelectProps> {
         const children = React.Children.map(
             this.props.children,
             (child, index) => {
-                const childElement = child as React.ReactElement<ToggleElementProps
+                const childElement = child as React.ReactElement<
+                    ToggleElementProps
                 >;
 
                 let props = {};
@@ -79,17 +82,18 @@ class BaseSelect extends React.Component<BaseSelectProps> {
                         ) => this.handleCheckboxStateChangeEvent(event)
                     };
                 } else {
-                    const propValue = this.props.value as string;
+                    const propValue = this.props.value as string | number;
                     props = {
                         myRadioStyle: true,
                         id: this.props.name + index,
                         name: this.props.name,
-                        checked: childElement.props.value
-                            ? !!(
-                                  '' + childElement.props.value ===
-                                  '' + propValue
-                              )
-                            : false,
+                        checked:
+                            childElement.props.value !== undefined
+                                ? !!(
+                                      '' + childElement.props.value ===
+                                      '' + propValue
+                                  )
+                                : false,
                         onChange: (
                             event: React.ChangeEvent<
                                 HTMLInputElement & ToggleElementProps
@@ -112,12 +116,20 @@ class BaseSelect extends React.Component<BaseSelectProps> {
         if (this.props.value !== nextProps.value) {
             return true;
         }
-        const oldValues = React.Children.map(this.props.children, (child: React.ReactElement<ToggleElementProps>) => child.props.value);
-        const newValues = React.Children.map(nextProps.children, (child: React.ReactElement<ToggleElementProps>) => child.props.value);
+        const oldValues = React.Children.map(
+            this.props.children,
+            (child: React.ReactElement<ToggleElementProps>) => child.props.value
+        );
+        const newValues = React.Children.map(
+            nextProps.children,
+            (child: React.ReactElement<ToggleElementProps>) => child.props.value
+        );
         if (oldValues.length !== newValues.length) {
             return true;
         }
-        const equal = oldValues.every((item, index) => item === newValues[index])
+        const equal = oldValues.every(
+            (item, index) => item === newValues[index]
+        );
         return !equal;
     }
 
@@ -245,6 +257,7 @@ class BaseSelect extends React.Component<BaseSelectProps> {
 
         this.props.onChange && this.props.onChange(ev);
         this.props.onSelectionChange && this.props.onSelectionChange(ev);
+        this.props.onBlur && this.props.onBlur(ev);
     }
 
     // private handleRadioStateChange(itemValue: string, checked: boolean) {

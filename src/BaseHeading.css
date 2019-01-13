@@ -1,6 +1,10 @@
-
 .Ulight-heading {
-    color: var(--foreground-color); 
-    font-size: 1.2rem; 
+    color: var(--foreground-color);
+    font-size: 1.2rem;
     font-style: italic;
+}
+
+h2.Ulight-heading {
+    color: rgba(var(--foreground-rgb), 0.9);
+    font-size: 1.1em;
 }

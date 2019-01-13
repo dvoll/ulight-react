@@ -1,20 +1,26 @@
-
-.Ulight-container, 
-.Ulight-container *, 
-.Ulight-container *::before, 
-.Ulight-container *::after 
-{
-    box-sizing: border-box
+.Ulight-container,
+.Ulight-container *,
+.Ulight-container *::before,
+.Ulight-container *::after {
+    box-sizing: border-box;
+    outline: none;
 }
 
 .Ulight-container {
-    --foreground-rgb:   '220, 220,220';
-    --secondary-rgb:    '74, 74, 74';
-    --background-rgb:   '35, 35, 35';
-    --accent-rgb:       '187, 0, 0';
+    --foreground-rgb: 60, 60, 60;
+    --foreground-light-rgb: 222, 220, 220;
+    --secondary-rgb: 110, 110, 110;
+    --background-rgb: 242, 242, 242;
+    --accent-rgb: 203, 66, 56;
 
     --foreground-color: rgb(var(--foreground-rgb));
-    --secondary-color:  rgb(var(--secondary-rgb));
+    --foreground-light-color: rgb(var(--foreground-light-rgb));
+    --secondary-color: rgb(var(--secondary-rgb));
     --background-color: rgb(var(--background-rgb));
-    --accent-color:     rgb(var(--accent-rgb));
+    --accent-color: rgb(var(--accent-rgb));
+
+    --hover-bg: rgba(var(--foreground-rgb), 10%);
+    --active-bg: rgba(var(--foreground-rgb), 20%);
+    --focus-border: rgba(var(--foreground-rgb), 60%);
+    --border-color: var(--foreground-light-color);
 }
