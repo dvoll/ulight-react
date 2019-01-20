@@ -1,9 +1,13 @@
-import * as React from "react";
+import * as React from 'react';
 
 import '../BaseButton.css';
 import './ToggleButton.css';
 
-export interface ToggleElementProps extends React.HTMLProps<HTMLInputElement> {
+export interface ToggleElementProps
+    extends React.DetailedHTMLProps<
+        React.InputHTMLAttributes<HTMLInputElement>,
+        HTMLInputElement
+    > {
     index?: number;
     // checked?: boolean;
     // onStateChange: (state: boolean) => any;
@@ -11,33 +15,63 @@ export interface ToggleElementProps extends React.HTMLProps<HTMLInputElement> {
     // labelName: string
     // optionValue: string;
     myRadioStyle?: boolean;
+    checkedText?: string;
     // selected?: boolean;
 }
 
 class ToggleElement extends React.PureComponent<ToggleElementProps> {
-
     constructor(props: ToggleElementProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
     }
 
     public render() {
-        const {index, myRadioStyle, onChange, style, className, children, ...restProps} = this.props;
-        return <div className="Ulight-ToggleButton ">
-                <input id={this.props.id} type={myRadioStyle ? "radio" : "checkbox"} onChange={this.handleChange} {...restProps} />
-            <label className={"Ulight-container Ulight-ToggleElement Ulight-button has-default"} style={style} onClick={this.handleChange} > {/* htmlFor={this.props.id} */}
-                    {this.props.children || this.props.value}
+        const {
+            index,
+            myRadioStyle,
+            onChange,
+            style,
+            className,
+            children,
+            checkedText,
+            ...restProps
+        } = this.props;
+        return (
+            <div className="Ulight-ToggleButton ">
+                <input
+                    id={this.props.id}
+                    type={myRadioStyle ? 'radio' : 'checkbox'}
+                    onChange={this.handleChange}
+                    {...restProps}
+                />
+                <label
+                    className={
+                        'Ulight-container Ulight-ToggleElement Ulight-button has-default'
+                    }
+                    style={style}
+                    onClick={this.handleChange}
+                >
+                    {' '}
+                    {/* htmlFor={this.props.id} */}
+                    {checkedText !== undefined && this.props.checked
+                        ? checkedText
+                        : this.props.children || this.props.value}
                 </label>
                 {/* <BaseButton className=".Ulight-Toggle-Element">
         Toggle Button
     </BaseButton> */}
-            </div>;
+            </div>
+        );
     }
 
-    private handleChange(event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLLabelElement>) {
+    private handleChange(
+        event:
+            | React.ChangeEvent<HTMLInputElement>
+            | React.MouseEvent<HTMLLabelElement>
+    ) {
         const ev: any = event;
         ev.target.index = this.props.index;
-        if( ev.target.id !== this.props.id) {
+        if (ev.target.id !== this.props.id) {
             ev.target.id = this.props.id || '';
             ev.target.checked = !this.props.checked;
             ev.target.value = this.props.value;

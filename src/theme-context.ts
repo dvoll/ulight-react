@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const themes = {
+export const ulightThemes = {
     dark: {
         // foreground: '#ffffff',
         // secondary: '#222222',
@@ -23,24 +23,27 @@ export const themes = {
     }
 };
 
-export enum ThemeType {
-    LIGHT,
-    DARK,
-    CUSTOM
+export enum UlightThemeTypes {
+    LIGHT = 0,
+    DARK = 1,
+    CUSTOM = 2
 }
 
-export const getTheme = (theme: ThemeType, customTheme?: Theme) => {
+export const getTheme = (
+    theme: UlightThemeTypes,
+    customTheme?: UlightTheme
+) => {
     switch (theme) {
-        case ThemeType.DARK:
-            return themes.dark;
-        case ThemeType.CUSTOM:
-            return customTheme ? customTheme : themes.light;
+        case UlightThemeTypes.DARK:
+            return ulightThemes.dark;
+        case UlightThemeTypes.CUSTOM:
+            return customTheme ? customTheme : ulightThemes.light;
         default:
-            return themes.light;
+            return ulightThemes.light;
     }
 };
 
-export interface Theme {
+export interface UlightTheme {
     foreground: string;
     foregroundLight: string;
     secondary: string;
@@ -51,5 +54,5 @@ export interface Theme {
 }
 
 export const ThemeContext = React.createContext(
-    themes.light as Theme // default value
+    ulightThemes.light as UlightTheme // default value
 );

@@ -1,3 +1,7 @@
+.Ulight-ToggleButton {
+    display: inline-block;
+}
+
 .Ulight-ToggleButton input[type='checkbox'],
 .Ulight-ToggleButton input[type='radio'] {
     position: absolute;

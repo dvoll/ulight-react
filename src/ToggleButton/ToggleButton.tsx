@@ -1,17 +1,20 @@
-import * as React from "react";
+import * as React from 'react';
 
 import './ToggleButton.css';
-import ToggleElement from "./ToggleElement";
+import ToggleElement from './ToggleElement';
 
 // interface ToggleButtonState {
 //     checked: boolean;
 // }
-export interface ToggleButtonProps extends React.HTMLAttributes<HTMLInputElement> {
-
+export interface ToggleButtonProps
+    extends React.DetailedHTMLProps<
+        React.InputHTMLAttributes<HTMLInputElement>,
+        HTMLInputElement
+    > {
+    checkedText?: string;
 }
 
 class ToggleButton extends React.Component<ToggleButtonProps> {
-
     constructor(props: ToggleButtonProps) {
         super(props);
         // this.state = { checked: this.props.checked || false };
@@ -19,15 +22,8 @@ class ToggleButton extends React.Component<ToggleButtonProps> {
     }
 
     public render() {
-        const {children, ...restProps} = this.props;
-        return <div > {/* Ulight-ToggleButton */}
-            <ToggleElement {...restProps} >{children}</ToggleElement>
-                {/* <input id={this.props.name} type="checkbox" checked={this.state.checked} onChange={this.props.onChange || this.handleChangedCheckState} style={{ display: "hidden" }} />
-            <label className='Ulight-ToggleElement Ulight-button has-default' htmlFor={this.props.name} >{this.props.value}</label> */}
-                {/* <BaseButton className=".Ulight-Toggle-Element">
-                Toggle Button
-            </BaseButton> */}
-            </div>;
+        const { children, ref, ...restProps } = this.props;
+        return <ToggleElement {...restProps}>{children}</ToggleElement>;
     }
 
     // private handleChangedCheckState(event: React.ChangeEvent<HTMLInputElement>) {
