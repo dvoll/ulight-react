@@ -1,0 +1,64 @@
+.Ulight-button {
+    --hover-bg: rgba(var(--foreground-rgb), 10%);
+    --active-bg: rgba(var(--foreground-rgb), 20%);
+    --focus-border: rgba(var(--foreground-rgb), 60%);
+    --border-color: rgb(var(--border-rgb));
+
+    background: rgb(var(--background-rgb));
+    --foreground-color: rgb(var(--foreground-rgb));
+
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    padding: 2px;
+    color: var(--foreground-color);
+    outline: 0;
+    font-size: 0.9em;
+
+    --padding-side: 12px;
+    padding: 6px var(--padding-side);
+
+    position: relative;
+
+    /* display: inline-flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.Ulight-button:hover {
+    background-color: var(--hover-bg);
+}
+.Ulight-button:active {
+    background-color: var(--active-bg);
+}
+.Ulight-button:focus {
+    --border-color: var(--focus-border);
+}
+
+.Ulight-button.prefix-icon,
+.Ulight-button.suffix-icon {
+    --icon-px: calc(var(--icon-size) * 1px);
+    --padding-side-doubled: calc(var(--padding-side) * 2);
+}
+.Ulight-button.prefix-icon {
+    /* padding 12 + 25 + 12 */
+    padding-left: calc(var(--padding-side-doubled) + var(--icon-px));
+}
+.Ulight-button.suffix-icon {
+    /* padding 12 + 25 + 12 */
+    padding-right: calc(var(--padding-side-doubled) + var(--icon-px));
+}
+
+.Ulight-button.prefix-icon > *:first-child,
+.Ulight-button.suffix-icon > *:last-child {
+    position: absolute;
+    top: 50%;
+    margin-top: calc(var(--icon-px) / -2); /* -10px; */
+}
+
+.Ulight-button.prefix-icon > *:first-child {
+    left: var(--padding-side);
+}
+
+.Ulight-button.suffix-icon > *:last-child {
+    left: calc(100% - calc(var(--padding-side) + var(--icon-px))); /*32*/
+}

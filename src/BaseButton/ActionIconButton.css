@@ -1,0 +1,19 @@
+.Ulight-ActionIconButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    min-width: 90px;
+    /* padding: 10px 5px 5px 5px; */
+    padding: 15px 10px 8px 10px;
+}
+
+.Ulight-ActionIconButton > *:first-child {
+    margin: 5px;
+}
+.Ulight-ActionIconButton > *:nth-child(2) {
+    font-size: 0.6rem;
+    letter-spacing: normal;
+}

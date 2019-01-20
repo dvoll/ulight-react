@@ -1,34 +1,56 @@
-import * as React from "react";
-import './default-style.css';
-import { ThemeContext } from "./theme-context";
+import * as React from 'react';
 
-interface IconProps {
+import './BaseIcon.css';
+// import './shared-style.css';
+
+export interface BaseIconProps {
     iconName: string;
     style?: React.CSSProperties;
     className?: string;
+    fillRgb?: string;
+    strokeRgb?: string;
+    height?: number | string;
 }
 
-const BaseIcon = (props: IconProps) => {
-    const {iconName, className, style, ...restProps} = props;
-    const viewBox =  `0 0 50 50`;
+const BaseIcon = (props: BaseIconProps) => {
+    const {
+        iconName,
+        className,
+        style,
+        fillRgb,
+        strokeRgb,
+        ...restProps
+    } = props;
+    const viewBox = `0 0 50 50`;
 
-    const classNames =
-        "Ulight-container Ulight-icon " +
-        className || "";
+    let classNames = 'Ulight-element Ulight-icon ';
 
-    return(
-        <ThemeContext.Consumer>
-            {theme => {
-                const styles = {
-                    ["--foreground-rgb" as any]: theme.foreground,
-                    ...style
-                };
-                return <svg style={styles} className={classNames} viewBox={viewBox} {...restProps} >
-                    <use xlinkHref={`#${iconName}`} />
-                </svg>
-            }}
-        </ThemeContext.Consumer>        
+    const styles: React.CSSProperties = {};
+    if (props.height !== undefined) {
+        styles.height = props.height;
+    }
+    if (strokeRgb !== undefined) {
+        styles['--stroke-rgb' as any] = strokeRgb;
+        classNames += 'has-stroke ';
+    }
+    if (fillRgb !== undefined) {
+        styles['--fill-rgb' as any] = fillRgb;
+        classNames += 'has-fill ';
+    }
+    return (
+        <svg
+            style={{ ...styles, ...style }}
+            className={classNames + className}
+            viewBox={viewBox}
+            {...restProps}
+        >
+            <use xlinkHref={`#${iconName}`} />
+        </svg>
     );
-}
+};
+
+// const getCssColorFromRgb = (value: string) => {
+//     return `rgb(${value})`;
+// };
 
 export default BaseIcon;

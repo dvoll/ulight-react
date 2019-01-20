@@ -4,16 +4,11 @@ import { ThemeContext } from './theme-context';
 import './BaseLabel.css';
 import './default-style.css';
 
-export interface LabelProps {
-    name: string;
+export interface LabelProps extends React.HTMLProps<any> {
+    name?: string;
 }
 
-interface LayoutProps {
-    style?: React.CSSProperties;
-    className?: string;
-}
-
-const BaseLabel = (props: LabelProps & LayoutProps) => {
+const BaseLabel = (props: LabelProps) => {
     return (
         <ThemeContext.Consumer>
             {theme => {
@@ -25,7 +20,7 @@ const BaseLabel = (props: LabelProps & LayoutProps) => {
                     'Ulight-container Ulight-label ' + props.className || '';
                 return (
                     <span className={className} style={style}>
-                        {props.name}
+                        {props.name || props.children}
                     </span>
                 );
             }}

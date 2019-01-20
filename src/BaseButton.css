@@ -1,4 +1,4 @@
-.Ulight-button {
+.Ulight-button-old {
     --hover-bg: rgba(var(--foreground-rgb), 10%);
     --active-bg: rgba(var(--foreground-rgb), 20%);
     --focus-border: rgba(var(--foreground-rgb), 60%);
@@ -13,35 +13,35 @@
     font-size: 0.9em;
 }
 
-.Ulight-button.has-default {
+.Ulight-button-old.has-default {
     padding: 6px 12px;
 }
-.Ulight-button.has-icon.has-default {
+.Ulight-button-old.has-icon.has-default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 2px 10px;
 }
 
-.Ulight-button:hover {
+.Ulight-button-old:hover {
     background-color: var(--hover-bg);
 }
-.Ulight-button:active {
+.Ulight-button-old:active {
     background-color: var(--active-bg);
 }
-.Ulight-button:focus {
+.Ulight-button-old:focus {
     --border-color: var(--focus-border);
 }
 
 /* Icon styles */
-.Ulight-button.has-icon > :first-child {
+.Ulight-button-old.has-icon > :first-child {
     display: block;
     height: 25px;
     width: auto;
     padding: 2px;
     fill: var(--foreground-color);
 }
-.Ulight-button.has-icon.has-default > :first-child {
+.Ulight-button-old.has-icon.has-default > :first-child {
     /* padding: 2px; */
     padding: 3px 5px 3px 0;
 }

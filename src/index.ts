@@ -1,4 +1,7 @@
 import BaseButton from './BaseButton';
+import ActionIconButton from './BaseButton/ActionIconButton';
+import Button from './BaseButton/Button';
+import IconButton from './BaseButton/IconButton';
 import BaseFormLabel from './BaseFormLabel/BaseFormLabel';
 import BaseHeading from './BaseHeading';
 import BaseIcon from './BaseIcon';
@@ -9,6 +12,8 @@ import BaseSelect from './MultiSelect/BaseSelect';
 import ToggleButton from './ToggleButton/ToggleButton';
 import ToggleElement from './ToggleButton/ToggleElement';
 import { withUlightTheme } from './withUlightTheme';
+
+import './shared-style.css';
 
 const Select = withUlightTheme(BaseSelect);
 const SelectOption = withUlightTheme(ToggleElement);
@@ -26,7 +31,10 @@ export {
     ToggleButton,
     SelectOption,
     withUlightTheme,
-    TextArea
+    TextArea,
+    Button,
+    IconButton,
+    ActionIconButton
 };
 
 export * from './theme-context';

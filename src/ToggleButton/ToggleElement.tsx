@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Button from '../BaseButton/Button';
 
 import '../BaseButton.css';
 import './ToggleButton.css';
@@ -45,17 +46,17 @@ class ToggleElement extends React.PureComponent<ToggleElementProps> {
                     {...restProps}
                 />
                 <label
-                    className={
-                        'Ulight-container Ulight-ToggleElement Ulight-button has-default'
-                    }
+                    className={'Ulight-container Ulight-ToggleElement'}
                     style={style}
                     onClick={this.handleChange}
                 >
                     {' '}
                     {/* htmlFor={this.props.id} */}
-                    {checkedText !== undefined && this.props.checked
-                        ? checkedText
-                        : this.props.children || this.props.value}
+                    <Button type="button">
+                        {checkedText !== undefined && this.props.checked
+                            ? checkedText
+                            : this.props.children || this.props.value}
+                    </Button>
                 </label>
                 {/* <BaseButton className=".Ulight-Toggle-Element">
         Toggle Button

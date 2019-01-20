@@ -1,0 +1,7 @@
+.Ulight-element,
+.Ulight-element *,
+.Ulight-element *::before,
+.Ulight-element *::after {
+    box-sizing: border-box;
+    outline: none;
+}

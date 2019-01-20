@@ -1,6 +1,13 @@
-
-.Ulight-icon {
+/* .Ulight-icon {
     fill: var(--foreground-color);
     height: 50px;
     width: auto;
+} */
+
+.Ulight-icon.has-fill {
+    fill: rgb(var(--fill-rgb));
+}
+
+.Ulight-icon.has-stroke {
+    stroke: rgb(var(--stroke-rgb));
 }

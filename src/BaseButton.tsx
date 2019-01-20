@@ -48,7 +48,7 @@ const BaseButton = (props: ButtonProps) => {
                 const hasDefault = children || title ? true : false;
 
                 const classNames =
-                    'Ulight-container Ulight-button ' +
+                    'Ulight-container Ulight-button-old ' +
                         (icon ? 'has-icon ' : '') +
                         (hasDefault ? 'has-default ' : '') +
                         className || '';
