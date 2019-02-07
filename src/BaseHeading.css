@@ -1,7 +1,8 @@
-.Ulight-heading {
+.Ulight-element.Ulight-heading {
     color: var(--foreground-color);
     font-size: 1.2rem;
     font-style: italic;
+    font-family: var(--style-font);
 }
 
 h2.Ulight-heading {

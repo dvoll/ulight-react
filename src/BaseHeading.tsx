@@ -3,6 +3,7 @@ import { ThemeContext } from './theme-context';
 
 import './BaseHeading.css';
 import './default-style.css';
+import './shared-style.css';
 
 export interface HeadingProps extends React.HTMLProps<HTMLHeadingElement> {
     title?: string;
@@ -33,7 +34,8 @@ const BaseHeading = (props: HeadingProps) => {
                 };
 
                 const classNames =
-                    'Ulight-container Ulight-heading ' + className || '';
+                    'Ulight-container Ulight-element Ulight-heading ' +
+                        className || '';
 
                 const headingProps = {
                     ...restProps,

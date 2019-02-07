@@ -4,4 +4,6 @@
 .Ulight-element *::after {
     box-sizing: border-box;
     outline: none;
+    font-family: Segoe Ui, Helvetica, Roboto, Arial, sans-serif;
+    --style-font: Arial, sans-serif;
 }

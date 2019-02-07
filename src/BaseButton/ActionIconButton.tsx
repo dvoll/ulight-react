@@ -43,7 +43,7 @@ const DefaultActionIconButton: React.SFC<
             {...restProps}
         >
             {iconChild}
-            <BaseLabel>{actionLabel}</BaseLabel>
+            <BaseLabel textSize={'small'}>{actionLabel}</BaseLabel>
         </BaseButton>
     );
 };

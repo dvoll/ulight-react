@@ -7,6 +7,14 @@
     --foreground-color: rgba(var(--foreground-rgb), 0.6);
     color: var(--foreground-color);
     /* color: `rgba(${theme.foreground}, 60%)`; // "var(--grey-500; #686464)"; */
+}
+
+.Ulight-label.text-transform {
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.Ulight-label.small-text {
+    letter-spacing: normal;
+    font-size: 0.6em;
 }
