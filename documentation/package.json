@@ -1,0 +1,27 @@
+{
+  "name": "@dvll/ulight-react-documentation",
+  "version": "1.0.0",
+  "description": "Documentation of ulight-react components with docz",
+  "main": "dist/index.js",
+  "scripts": {
+    "docz:dev": "rm -rf ./.docz/cache && docz dev",
+    "docz:build": "rm -rf ./.docz/cache && docz build",
+    "docz:serve": "rm -rf ./.docz/cache && docz build && docz serve"
+  },
+  "author": "Dario Voll",
+  "license": "ISC",
+  "dependencies": {
+    "docz": "^2.3.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.14.12",
+    "@types/react-dom": "^17.0.9",
+    "@types/theme-ui": "^0.2.8",
+    "typescript": "^3.1.3"
+  },
+  "workspaces": [
+    "../*"
+  ]
+}

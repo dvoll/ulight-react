@@ -1,0 +1,46 @@
+---
+name: Hello world
+route: /
+---
+
+import BaseIcon from '../../src/BaseIcon.tsx';
+import Button from '../../src/BaseButton/Button.tsx';
+import IconButton from '../../src/BaseButton/IconButton.tsx';
+import ToggleButton from '../../src/ToggleButton/ToggleButton.tsx';
+import { Playground, Props } from 'docz';
+
+
+Hello, I'm a mdx file!
+
+# Button Element
+
+## Base Button
+
+### Base Button Props
+<Props of={Button} />
+
+<Button>MyButton</Button>
+{/* <BaseIcon iconName="edit" /> */}
+
+## Icon Button
+
+### Icon Button Props
+<Props of={IconButton} />
+[Base Icon Definition](./Icon.mdx)
+<IconButton><BaseIcon iconName="edit" /></IconButton>
+
+## Toggle Button
+
+### Toggle Button Props
+<Props of={ToggleButton} />
+
+<Playground>
+    {() => {
+        const [toggled, setToggled] = React.useState(false)
+        return (
+            <ToggleButton checked={toggled} onChange={(ev) => setToggled(ev.target.checked)}>
+                Toggle1 { toggled ? '1' : 0}
+            </ToggleButton>
+        )
+    }}
+</Playground>
